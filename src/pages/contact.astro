@@ -1,0 +1,182 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <div class="page-hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you</p>
+    </div>
+  </div>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <p>Ready to begin your wellness journey? Reach out to schedule an appointment or ask any questions.</p>
+
+          <div class="info-block">
+            <h3>📞 Phone</h3>
+            <p>(555) 123-4567</p>
+          </div>
+
+          <div class="info-block">
+            <h3>📧 Email</h3>
+            <p>info@serenitythai.com</p>
+          </div>
+
+          <div class="info-block">
+            <h3>📍 Location</h3>
+            <p>123 Wellness Way<br>Peaceful City, PC 12345</p>
+          </div>
+
+          <div class="info-block">
+            <h3>🕒 Hours</h3>
+            <p>Monday - Saturday: 9am - 8pm<br>Sunday: 10am - 6pm</p>
+          </div>
+        </div>
+
+        <div class="contact-form-placeholder">
+          <h3>Contact Form</h3>
+          <p>Contact form coming soon! In the meantime, please call or email us directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 400px;
+    background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(184, 216, 78, 0.6), rgba(90, 143, 58, 0.5));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #f5f1e8;
+  }
+
+  .hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  .content-section {
+    padding: 5rem 0;
+    background-color: #fff;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-info h2 {
+    font-size: 2.5rem;
+    color: #5a8f3a;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+
+  .info-block {
+    margin-bottom: 2rem;
+  }
+
+  .info-block h3 {
+    font-size: 1.3rem;
+    color: #5a8f3a;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-block p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .contact-form-placeholder {
+    background: linear-gradient(135deg, #b8d84e, #5a8f3a);
+    color: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-form-placeholder h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-form-placeholder p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      height: 300px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

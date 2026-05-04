@@ -1,58 +1,334 @@
 ---
-import { IndexConfig } from './index-config';
-import type { Person, Dob } from '../models/person.model';
 import MainLayout from '../layouts/MainLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
 
-const hw = 'Hello World!';
-const people = IndexConfig;
-
-function calculateAge(dob: Dob): number {
-  const today = new Date();
-  const age = today.getFullYear() - dob.year;
-
-  // Returns age - 1 if the birthday hasn't happened yet
-  return today.getMonth() + 1 < dob.month ||
-    (today.getMonth() + 1 === dob.month && today.getDate() < dob.day)
-    ? age - 1
-    : age;
-}
+const services = [
+  {
+    title: 'Traditional Thai Massage',
+    description: 'Ancient healing art combining acupressure, stretching, and assisted yoga postures to restore balance and energy flow.',
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=300&fit=crop',
+    duration: '90 minutes',
+    price: '$120'
+  },
+  {
+    title: 'Aromatherapy Massage',
+    description: 'Relaxing massage using essential oils to enhance physical and emotional well-being.',
+    image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=300&fit=crop',
+    duration: '60 minutes',
+    price: '$95'
+  },
+  {
+    title: 'Deep Tissue Therapy',
+    description: 'Focused pressure techniques to release chronic muscle tension and promote healing.',
+    image: 'https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=400&h=300&fit=crop',
+    duration: '75 minutes',
+    price: '$110'
+  },
+  {
+    title: 'Hot Stone Massage',
+    description: 'Warm basalt stones melt away tension while promoting deep relaxation and improved circulation.',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=300&fit=crop',
+    duration: '90 minutes',
+    price: '$130'
+  }
+];
 ---
 
-<MainLayout
-  ><h1>Astro</h1>
-  <p>{hw}</p>
-</MainLayout>
+<MainLayout>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Discover Ancient Healing</h1>
+      <p class="hero-subtitle">Experience the transformative power of traditional Thai massage</p>
+      <CTAButton href="/contact" />
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
 
-<!-- {
-      people.map((person) => (
-        <div class="card">
-          <div class="person">
-            <div class="label">Name:</div>
-            <div class="field">
-              <span class="label">First:</span> {person.firstName}
+  <!-- Welcome Section -->
+  <section class="welcome">
+    <div class="container">
+      <h2>Welcome to Serenity</h2>
+      <p class="lead">At Serenity Thai Massage, we blend ancient healing traditions with modern wellness practices. Our experienced therapists are dedicated to helping you achieve balance, relaxation, and renewed vitality.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        {services.map((service) => (
+          <div class="service-card">
+            <div class="service-image-wrapper">
+              <img src={service.image} alt={service.title} class="service-image" />
             </div>
-            <div class="field">
-              <span class="label">Last:</span> {person.lastName}
-            </div>
-            <div class="field">
-              <span class="label">Age:</span> {calculateAge(person.dob)}
+            <div class="service-content">
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <div class="service-details">
+                <span class="duration">{service.duration}</span>
+                <span class="price">{service.price}</span>
+              </div>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="container">
+      <h2>Benefits of Thai Massage</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">🧘</div>
+          <h3>Improved Flexibility</h3>
+          <p>Gentle stretching increases range of motion</p>
         </div>
-      ))
-    } -->
-<!-- <style>
-    .person {
+        <div class="benefit-item">
+          <div class="benefit-icon">💆</div>
+          <h3>Stress Relief</h3>
+          <p>Deep relaxation calms mind and body</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <h3>Energy Boost</h3>
+          <p>Restores vitality and balance</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💪</div>
+          <h3>Pain Relief</h3>
+          <p>Alleviates muscle tension and soreness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 600px;
+    background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&h=900&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(184, 216, 78, 0.6), rgba(90, 143, 58, 0.5));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #f5f1e8;
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Welcome Section */
+  .welcome {
+    padding: 5rem 0;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .welcome h2 {
+    font-size: 3rem;
+    color: #5a8f3a;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Services Section */
+  .services {
+    padding: 5rem 0;
+    background-color: #f0f8e8;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #5a8f3a;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-image-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-image {
+    transform: scale(1.05);
+  }
+
+  .service-content {
+    padding: 1.5rem;
+  }
+
+  .service-content h3 {
+    font-size: 1.5rem;
+    color: #5a8f3a;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .service-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .duration {
+    color: #888;
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #b8d84e;
+  }
+
+  /* Benefits Section */
+  .benefits {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #b8d84e, #5a8f3a);
+    color: #ffffff;
+  }
+
+  .benefits h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+
+  .benefit-item {
+    text-align: center;
+  }
+
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .benefit-item p {
+    color: #ffffff;
+    opacity: 0.95;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      height: 500px;
     }
 
-    .label {
-      font-weight: bolder;
+    .hero-title {
+      font-size: 2.5rem;
     }
 
-    .card {
-      margin: 8px;
-      padding: 4px;
-      border: 1px solid grey;
-      border-radius: 8px;
+    .hero-subtitle {
+      font-size: 1.2rem;
     }
-  </style> -->
+
+    .welcome h2,
+    .section-title,
+    .benefits h2 {
+      font-size: 2rem;
+    }
+
+    .services-grid,
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

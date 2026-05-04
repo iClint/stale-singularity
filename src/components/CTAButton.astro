@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  text?: string;
+}
+
+const { href, text = 'Book Your Session' } = Astro.props;
+---
+
+<a href={href} class="cta-button">
+  {text}
+</a>
+
+<style>
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #ffffff;
+    color: #5a8f3a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffffff;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    background: #5a8f3a;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+</style>

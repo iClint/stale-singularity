@@ -1,5 +1,6 @@
 ---
 import Navigation from './Navigation.astro';
+import CTAButton from './CTAButton.astro';
 
 interface Props {
   title: string;
@@ -20,56 +21,21 @@ const { title, description, logo, fontFamily, backgroundColor, textColor } =
 <div
   class="header-wrapper"
   style={`--fontFamily:${fontFamily};--bg:${backgroundColor}; --text: ${textColor}`}>
-  <header
-    class="header-container"
-    style={`--fontFamily:${fontFamily};--bg:${backgroundColor}; --text: ${textColor}`}>
-    <div class="logo-container">
+  <header class="header-container">
+    <div class="brand">
       <img
         class="logo"
         src={logo.url}
         alt={logo.alt}
       />
+      <div class="title-tagline">
+        <h1 class="title">{title}</h1>
+        <p class="tagline">{description}</p>
+      </div>
     </div>
-    <div class="title-tagline">
-      <h1>{title}</h1>
-      <div>{description}</div>
+    <div class="header-cta">
+      <CTAButton href="/contact" text="Book Now" />
     </div>
   </header>
-  <Navigation class="navigation" />
+  <Navigation />
 </div>
-
-<style>
-  .header-wrapper {
-    font-family: var(--fontFamily);
-    background-color: var(--bg);
-    color: var(--text);
-  }
-
-  .header-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    padding: -8px;
-  }
-
-  .title-tagline {
-    padding-left: 8px;
-  }
-
-  .logo-container {
-    margin: 8px;
-    padding: 4px;
-    background-color: white;
-    border-radius: 50%;
-  }
-
-  .navigation {
-    font-family: var(--fontFamily);
-    background-color: var(--bg);
-    color: var(--text);
-  }
-
-  .logo {
-    height: 65px;
-  }
-</style>

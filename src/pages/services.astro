@@ -1,0 +1,130 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <div class="page-hero">
+    <div class="hero-content">
+      <h1>Our Services</h1>
+      <p>Discover the perfect treatment for your wellness journey</p>
+    </div>
+  </div>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>Coming Soon</h2>
+      <p>We're currently building out our detailed services page. Check back soon for complete information about all our massage therapies, pricing, and booking options.</p>
+
+      <p>In the meantime, feel free to contact us directly to learn more about our services or schedule an appointment.</p>
+
+      <a href="/contact" class="cta-button">Contact Us</a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 400px;
+    background-image: url('https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(184, 216, 78, 0.6), rgba(90, 143, 58, 0.5));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #f5f1e8;
+  }
+
+  .hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  .content-section {
+    padding: 5rem 0;
+    background-color: #fff;
+    text-align: center;
+    min-height: 400px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .content-section h2 {
+    font-size: 3rem;
+    color: #5a8f3a;
+    margin-bottom: 2rem;
+  }
+
+  .content-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: #ffffff;
+    color: #5a8f3a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffffff;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    background: #5a8f3a;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      height: 300px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

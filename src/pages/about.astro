@@ -3,6 +3,291 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout>
-  <h1>About</h1>
-  <p>this is my about page</p>
+  <div class="about-hero">
+    <div class="about-hero-content">
+      <h1>Our Story</h1>
+      <p>Dedicated to healing and wellness since 2010</p>
+    </div>
+  </div>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-text">
+          <h2>Welcome to Massage Yathai</h2>
+          <p>Founded in 2010, Massage Yathai brings the ancient healing traditions of Thailand to our modern wellness center. Our journey began with a simple vision: to create a sanctuary where people could escape the stresses of daily life and reconnect with their inner peace.</p>
+
+          <p>Our founder, trained in the traditional methods at the renowned Wat Pho temple in Bangkok, brought authentic Thai massage techniques to our community. Today, our team of certified therapists continues this legacy, blending time-honored practices with contemporary wellness approaches.</p>
+
+          <h3>Our Philosophy</h3>
+          <p>We believe that true wellness comes from balancing mind, body, and spirit. Thai massage, known as "lazy yoga," combines acupressure, assisted stretching, and energy work to create a holistic healing experience that goes beyond simple relaxation.</p>
+        </div>
+
+        <div class="content-image">
+          <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=800&fit=crop" alt="Massage therapy room" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop" alt="Sarah Chen" />
+          <h3>Sarah Chen</h3>
+          <p class="role">Founder & Senior Therapist</p>
+          <p>Certified in Traditional Thai Massage from Wat Pho, Bangkok. 15+ years experience.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop" alt="Maria Rodriguez" />
+          <h3>Maria Rodriguez</h3>
+          <p class="role">Aromatherapy Specialist</p>
+          <p>Expert in essential oils and therapeutic massage. 10 years experience.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="James Park" />
+          <h3>James Park</h3>
+          <p class="role">Deep Tissue Therapist</p>
+          <p>Specialized in sports massage and injury recovery. 8 years experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>🌿 Authenticity</h3>
+          <p>We honor traditional Thai healing methods while embracing modern wellness practices.</p>
+        </div>
+
+        <div class="value-card">
+          <h3>💚 Compassion</h3>
+          <p>Every client receives personalized care tailored to their unique needs and wellness goals.</p>
+        </div>
+
+        <div class="value-card">
+          <h3>✨ Excellence</h3>
+          <p>Our therapists undergo continuous training to provide the highest quality of care.</p>
+        </div>
+
+        <div class="value-card">
+          <h3>🕊️ Tranquility</h3>
+          <p>We create a peaceful sanctuary where you can truly relax and rejuvenate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>
+
+<style>
+  .about-hero {
+    position: relative;
+    height: 400px;
+    background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(184, 216, 78, 0.6), rgba(90, 143, 58, 0.5));
+  }
+
+  .about-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #f5f1e8;
+  }
+
+  .about-hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .about-hero-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .about-content {
+    padding: 5rem 0;
+    background-color: #fff;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .content-text h2 {
+    font-size: 2.5rem;
+    color: #5a8f3a;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-text h3 {
+    font-size: 2rem;
+    color: #5a8f3a;
+    margin: 2rem 0 1rem;
+  }
+
+  .content-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-section {
+    padding: 5rem 0;
+    background-color: #f0f8e8;
+  }
+
+  .team-section h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: #5a8f3a;
+    margin-bottom: 3rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+  }
+
+  .team-member {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .team-member:hover {
+    transform: translateY(-5px);
+  }
+
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 4px solid #b8d84e;
+  }
+
+  .team-member h3 {
+    font-size: 1.5rem;
+    color: #5a8f3a;
+    margin-bottom: 0.5rem;
+  }
+
+  .role {
+    color: #b8d84e;
+    font-weight: 600;
+    margin-bottom: 1rem !important;
+  }
+
+  .team-member p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .values-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #b8d84e, #5a8f3a);
+    color: #ffffff;
+  }
+
+  .values-section h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 241, 232, 0.2);
+  }
+
+  .value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .value-card p {
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      height: 300px;
+    }
+
+    .about-hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .about-hero-content p {
+      font-size: 1.2rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .team-section h2,
+    .values-section h2,
+    .content-text h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
