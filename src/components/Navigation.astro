@@ -1,0 +1,56 @@
+---
+const currentPath = Astro.url.pathname;
+const pages = [
+  { label: 'Home', url: '/' },
+  { label: 'About', url: '/about' },
+];
+---
+
+<div class="nav-wrapper">
+  <nav class="nav-bar">
+    {
+      pages.map((page) => (
+        <a
+          href={page.url}
+          class:list={['nav-links', { active: currentPath === page.url }]}>
+          {page.label}
+          {currentPath === page.url && <span class="indicator" />}
+        </a>
+      ))
+    }
+  </nav>
+</div>
+
+<style>
+  .nav-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .nav-links {
+    position: relative;
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-links.active {
+    font-weight: 900;
+  }
+
+  .indicator {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    view-transition-name: active-indicator; /* Now it works! */
+  }
+</style>

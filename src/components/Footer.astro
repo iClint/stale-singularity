@@ -1,0 +1,27 @@
+---
+interface Props {
+  footerText: string;
+  fontFamily: string;
+  backgroundColor: string;
+  textColor: string;
+}
+
+const { footerText, fontFamily, backgroundColor, textColor } =
+  Astro.props as Props;
+---
+
+<footer
+  style={`--fontFamily: ${fontFamily}; --bg: ${backgroundColor}; --text: ${textColor};`}>
+  {footerText}
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    font-family: var(--fontFamily);
+    background-color: var(--bg);
+    color: var(--text);
+  }
+</style>

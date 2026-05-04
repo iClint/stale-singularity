@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  background: rgb(56, 55, 55);
+}
+
+body {
+  width: 900px;
+  background: white;
+}

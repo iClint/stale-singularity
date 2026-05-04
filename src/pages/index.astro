@@ -1,17 +1,58 @@
 ---
+import { IndexConfig } from './index-config';
+import type { Person, Dob } from '../models/person.model';
+import MainLayout from '../layouts/MainLayout.astro';
 
+const hw = 'Hello World!';
+const people = IndexConfig;
+
+function calculateAge(dob: Dob): number {
+  const today = new Date();
+  const age = today.getFullYear() - dob.year;
+
+  // Returns age - 1 if the birthday hasn't happened yet
+  return today.getMonth() + 1 < dob.month ||
+    (today.getMonth() + 1 === dob.month && today.getDate() < dob.day)
+    ? age - 1
+    : age;
+}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout
+  ><h1>Astro</h1>
+  <p>{hw}</p>
+</MainLayout>
+
+<!-- {
+      people.map((person) => (
+        <div class="card">
+          <div class="person">
+            <div class="label">Name:</div>
+            <div class="field">
+              <span class="label">First:</span> {person.firstName}
+            </div>
+            <div class="field">
+              <span class="label">Last:</span> {person.lastName}
+            </div>
+            <div class="field">
+              <span class="label">Age:</span> {calculateAge(person.dob)}
+            </div>
+          </div>
+        </div>
+      ))
+    } -->
+<!-- <style>
+    .person {
+    }
+
+    .label {
+      font-weight: bolder;
+    }
+
+    .card {
+      margin: 8px;
+      padding: 4px;
+      border: 1px solid grey;
+      border-radius: 8px;
+    }
+  </style> -->

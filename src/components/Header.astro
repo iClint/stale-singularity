@@ -1,0 +1,75 @@
+---
+import Navigation from './Navigation.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  logo: Logo;
+  fontFamily: string;
+  backgroundColor: string;
+  textColor: string;
+}
+interface Logo {
+  url: string;
+  alt: string;
+}
+const { title, description, logo, fontFamily, backgroundColor, textColor } =
+  Astro.props;
+---
+
+<div
+  class="header-wrapper"
+  style={`--fontFamily:${fontFamily};--bg:${backgroundColor}; --text: ${textColor}`}>
+  <header
+    class="header-container"
+    style={`--fontFamily:${fontFamily};--bg:${backgroundColor}; --text: ${textColor}`}>
+    <div class="logo-container">
+      <img
+        class="logo"
+        src={logo.url}
+        alt={logo.alt}
+      />
+    </div>
+    <div class="title-tagline">
+      <h1>{title}</h1>
+      <div>{description}</div>
+    </div>
+  </header>
+  <Navigation class="navigation" />
+</div>
+
+<style>
+  .header-wrapper {
+    font-family: var(--fontFamily);
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .header-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: -8px;
+  }
+
+  .title-tagline {
+    padding-left: 8px;
+  }
+
+  .logo-container {
+    margin: 8px;
+    padding: 4px;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .navigation {
+    font-family: var(--fontFamily);
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .logo {
+    height: 65px;
+  }
+</style>
